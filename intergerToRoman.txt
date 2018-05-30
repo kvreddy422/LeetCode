@@ -1,52 +1,65 @@
+result="";
 class Solution:
-    def intToRoman(self, num):
-        array = ['I','V','X','L','C','D','M']
-        arrayValues=[1,5,10,50,100,500,1000]
-        commonFactor=0.6
-        commonFactor2=1
-        
-        result = ""
-        while(num>0):
-            if(num/arrayValues[6]>commonFactor2):
-                result=result+array[6]
-                num=num-arrayValues[6]
-            elif(num/arrayValues[6]>commonFactor and num/arrayValues[6]<commonFactor2 ):
-                intToRoman(arrayValues[6]-num)
-                result=result+array[6]
-            elif(num/arrayValues[5]>commonFactor2):
-                result=result+array[5]
-                num=num-arrayValues[5]
-            elif(num/arrayValues[5]>commonFactor and num/arrayValues[5]<commonFactor2 ):
-                intToRoman(arrayValues[5]-num)
-                result=result+array[5]            
-            elif(num/arrayValues[4]>commonFactor2):
-                result=result+array[4]
-                num=num-arrayValues[4]
-            elif(num/arrayValues[4]>commonFactor and num/arrayValues[4]<commonFactor2 ):
-                intToRoman(arrayValues[4]-num)
-                result=result+array[4]                
-            elif(num/arrayValues[3]>commonFactor2):
-                result=result+array[3]
-                num=num-arrayValues[3]
-            elif(num/arrayValues[3]>commonFactor and num/arrayValues[3]<commonFactor2 ):
-                intToRoman(arrayValues[3]-num)
-                result=result+array[3]                
-            elif(num/arrayValues[2]>commonFactor2):
-                result=result+array[2]
-                num=num-arrayValues[2]
-            elif(num/arrayValues[2]>commonFactor and num/arrayValues[2]<commonFactor2 ):
-                intToRoman(arrayValues[2]-num)
-                result=result+array[2]                
-            elif(num/arrayValues[1]>commonFactor2):
-                result=result+array[1]
-                num=num-arrayValues[1]
-            elif(num/arrayValues[1]>commonFactor and num/arrayValues[1]<commonFactor2 ):
-                intToRoman(arrayValues[1]-num)
-                result=result+array[1]                
-            elif(num/arrayValues[0]>commonFactor2):
-                result=result+array[0]
-                num=num-arrayValues[0]
-            elif(num/arrayValues[0]>commonFactor and num/arrayValues[0]<commonFactor2 ):
-                intToRoman(arrayValues[0]-num)
-                result=result+array[0]        
-        
+    def intToRoman(self,num):
+        array = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
+        arrayValues = [1, 5, 10, 50, 100, 500, 1000]
+        commonFactor = 0.6
+        commonFactor3=0.8
+        commonFactor2 = 1
+        global result
+        while (num > 0):
+            if (num / arrayValues[6] >= commonFactor2):
+                result = result + array[6]
+                num = num - arrayValues[6]
+            elif (num / arrayValues[6] > commonFactor3 and num / arrayValues[6] < commonFactor2):
+                self.intToRoman(arrayValues[6] - num)
+                result = result + array[6]
+                num = 0
+            elif (num / arrayValues[5] >= commonFactor2):
+                result = result + array[5]
+                num = num - arrayValues[5]
+            elif (num / arrayValues[5] > commonFactor and num / arrayValues[5] < commonFactor2):
+                self.intToRoman(arrayValues[5] - num)
+                result = result + array[5]
+                num = 0
+            elif (num / arrayValues[4] >= commonFactor2):
+                result = result + array[4]
+                num = num - arrayValues[4]
+            elif (num / arrayValues[4] > commonFactor3 and num / arrayValues[4] < commonFactor2):
+                self.intToRoman(arrayValues[4] - num)
+                result = result + array[4]
+                num = 0
+            elif (num / arrayValues[3] >= commonFactor2):
+                result = result + array[3]
+                num = num - arrayValues[3]
+            elif (num / arrayValues[3] > commonFactor and num / arrayValues[3] < commonFactor2):
+                self.intToRoman(arrayValues[3] - num)
+                result = result + array[3]
+                num = 0
+            elif (num / arrayValues[2] >= commonFactor2):
+                result = result + array[2]
+                num = num - arrayValues[2]
+            elif (num / arrayValues[2] > commonFactor3 and num / arrayValues[2] < commonFactor2):
+                self.intToRoman(arrayValues[2] - num)
+                result = result + array[2]
+                num = 0
+            elif (num / arrayValues[1] >= commonFactor2):
+                result = result + array[1]
+                num = num - arrayValues[1]
+            elif (num / arrayValues[1] > commonFactor and num / arrayValues[1] < commonFactor2):
+                self.intToRoman(arrayValues[1] - num)
+                result = result + array[1]
+                num=0
+            elif (num / arrayValues[0] >= commonFactor2):
+                result = result + array[0]
+                num = num - arrayValues[0]
+            elif (num / arrayValues[0] > commonFactor3 and num / arrayValues[0] < commonFactor2):
+                self.intToRoman(arrayValues[0] - num)
+                result = result + array[0]
+                num = 0
+
+        return result
+
+if __name__ == "__main__":
+    obj = Solution()
+    print(obj.intToRoman(1994))
