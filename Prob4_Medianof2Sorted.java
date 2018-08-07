@@ -11,6 +11,30 @@ public class Manic {
 	    int med1pos=0,med2pos=0;
 	    int flag=0;
 	    int start1=0,start2=0;
+	    if(nums1Size==0) {
+	    	if((nums2Size-start2)%2==0) {
+	    		median2=(nums2[(nums2Size+start2)/2-1]+nums2[(nums2Size+start2)/2])/2.0;
+	    		med2pos=(nums2Size+start2)/2-1;
+	    		return median2;
+	    	}
+	    	else {
+	    		median2=nums2[(nums2Size+start2)/2];
+	    		med2pos=(nums2Size+start2)/2;
+	    		return median2;
+	    	}
+	    }
+	    else if(nums2Size==0) {
+	    	if((nums1Size-start1)%2==0) {
+	    		median1=(nums1[(nums1Size+start1)/2-1]+nums1[(nums1Size+start1)/2])/2.0;
+	    		med1pos=(nums1Size+start1)/2-1;
+	    		return median1;
+	    	}
+	    	else {
+	    		median1=nums1[(nums1Size+start1)/2];
+	    		med1pos=(nums1Size+start1)/2;
+	    		return median1;
+	    	}
+	    }
 	    while((nums1Size-start1)>0 && (nums2Size-start2)>0 ) {
 	    	if((nums1Size-start1)%2==0) {
 	    		median1=(nums1[(nums1Size+start1)/2-1]+nums1[(nums1Size+start1)/2])/2.0;
@@ -114,8 +138,8 @@ public class Manic {
 	}
     public static void main(String[] args)throws Exception
 	{
-    	int array1[]= {1,2};
-    	int array2[]= {3,4};
+    	int array1[]= {};
+    	int array2[]= {1};
     	System.out.println(new Manic().findMedianSortedArrays(array1,array2));
     } 
 	
