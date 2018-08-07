@@ -67,6 +67,8 @@ public class Manic {
 	    }
 	    
 	    if((nums1Size-start1)==1) {
+	    	if(nums2Size-start2==1)
+	    		return (median1+median2)/2;
 	    	if((nums2Size-start2)%2==0){
 	    		if(median1>=nums2[med2pos] && median1<=nums2[med2pos+1])
 	    			return median1;
