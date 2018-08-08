@@ -135,7 +135,7 @@ public class Manic {
 	    			return (median1+nums1[med1pos-1])/2;
 	    		}
 	    		else {
-	    			return (median1+nums1[med1pos])/2;
+	    			return (median1+nums1[med1pos+1])/2;
 	    		}
 	    	}
 	    
@@ -144,8 +144,8 @@ public class Manic {
 	}
     public static void main(String[] args)throws Exception
 	{
-    	int array1[]= {4};
-    	int array2[]= {1,2,3};
+    	int array1[]= {1,2,3};
+    	int array2[]= {4};
     	System.out.println(new Manic().findMedianSortedArrays(array1,array2));
     } 
 	
