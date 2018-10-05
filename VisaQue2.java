@@ -7,7 +7,6 @@ public class VisaQue2 {
 	static StringBuffer stringinResult = new StringBuffer();
 	public static void main (String[] args)  
     { 
-        int n = 5; 
         List<String> result = findSchedules(40,8,"??13???"); 
     }
 	

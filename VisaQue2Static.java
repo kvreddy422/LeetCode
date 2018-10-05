@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class VisaQue2NonStatic {
+public class VisaQue2Static {
 	
 	static List<String> resultsTemp = new ArrayList<>();
-	
+	static StringBuffer stringinResult = new StringBuffer();
 	public static void main (String[] args)  
     {  
         List<String> result = findSchedules(40,8,"??13???"); 
     }
 	
-	public static void findCountPatterns(int questionCount, int dayHours, int workHours, StringBuffer stringinResult){
+	public static void findCountPatterns(int questionCount, int dayHours, int workHours){
 		if(stringinResult.length()==questionCount) {
 			if(workHours==0) {
 				if(stringinResult.length()==questionCount)
@@ -20,7 +20,7 @@ public class VisaQue2NonStatic {
 		else {
 			for (int i=0;i<=dayHours;i++) {
 				stringinResult.append(i);
-				findCountPatterns(questionCount, dayHours, workHours-i,stringinResult);
+				findCountPatterns(questionCount, dayHours, workHours-i);
 				stringinResult.deleteCharAt(stringinResult.length()-1);
 			}
 		}
@@ -41,8 +41,7 @@ public class VisaQue2NonStatic {
 			}
 		}
 		List<String> resultsFinal = new ArrayList<>();
-		StringBuffer stringinResult = new StringBuffer();
-		findCountPatterns(questionCount,dayHours,workHours-hoursCompleted,stringinResult);
+		findCountPatterns(questionCount,dayHours,workHours-hoursCompleted);
 		
 		for(int resultCount=0;resultCount<resultsTemp.size();resultCount++) {
 			StringBuilder eachString = new StringBuilder(resultsTemp.get(resultCount));
